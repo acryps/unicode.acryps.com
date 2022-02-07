@@ -1,0 +1,7 @@
+{
+    "name": "unicode",
+    "version": "1.0.33",
+    "dependencies": {
+        "express": "*"
+    }
+}
