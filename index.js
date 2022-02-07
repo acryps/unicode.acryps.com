@@ -18,8 +18,13 @@ app.all("*", (req, res) => {
 
                 ui-title {
                     display: block;
-                    font-weight: bold;
+                    font-family: pt;
                     margin: 0.5em;
+                }
+
+                ui-logo {
+                    color: #0f05a2;
+                    font-weight: bold;
                 }
 
                 ui-symbol {
@@ -27,13 +32,28 @@ app.all("*", (req, res) => {
                     margin: 0.5em;
                     background: #eee;
                 }
+
+                @font-face {
+                    font-family: pt;
+                    font-weight: normal;
+                    src: url('https://acryps.com/fonts/pt/regular');
+                }
+    
+                @font-face {
+                    font-family: pt;
+                    font-weight: bold;
+                    src: url('https://acryps.com/fonts/pt/bold');
+                }
             </style>
         </head>
 
         <body>
-            <ui-title># unicode symbols</ui-title>
+            <ui-title>
+                <ui-logo>acryps</ui-logo> unicode symbols
+            </ui-title>
+
             <ui-symbols>
-                ${symbols.split("").map(s => `<ui-symbol>${s}</ui-symbol> `).join("")}
+                ${[...symbols.split(''), '¨̮'].map(s => `<ui-symbol>${s}</ui-symbol> `).join("")}
             </ui-symbols>
         </body>
     </html>
