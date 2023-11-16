@@ -1,0 +1,22 @@
+{
+	"name": "server",
+	"scripts": {
+		"build": "npx vlserver compile && tsc",
+		"start": "npx vlserver compile && tsc && environment node built/index.js",
+		"database:update": "environment vlquery create-context"
+	},
+	"environment": {
+		"characterSource": "Unicode Character Map Source"
+	},
+	"dependencies": {
+		"@acryps/environment": "^2.0.1",
+		"vlserver": "^4.6.21"
+	},
+	"devDependencies": {
+		"@types/node": "^18.11.15",
+		"nodemon": "^3.0.1",
+		"ts-node": "^10.9.1",
+		"tsc-watch": "^6.0.0",
+		"typescript": "^4.9.4"
+	}
+}
