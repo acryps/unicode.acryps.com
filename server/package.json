@@ -9,8 +9,12 @@
 		"characterSource": "Unicode Character Map Source"
 	},
 	"dependencies": {
-		"@acryps/environment": "^2.0.1",
-		"vlserver": "^4.6.21"
+		"@acryps/environment": "^2.7.2",
+		"adm-zip": "^0.5.10",
+		"fast-xml-parser": "^4.3.2",
+		"unzipper": "^0.10.14",
+		"vlserver": "^4.6.29",
+		"xmldom": "^0.6.0"
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.15",

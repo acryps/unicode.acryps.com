@@ -6,7 +6,9 @@
 	},
 	"services": {
 		"serverOutFile": "managed/server.ts",
-		"scan": [],
+		"scan": [
+			"character"
+		],
 		"endpoints": [
 			{
 				"type": "native",

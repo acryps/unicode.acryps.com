@@ -1,0 +1,14 @@
+@mixin article {
+	display: block;
+	padding: var(--article-spacing);
+}
+
+@mixin article-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin article-header-title {
+	display: block;
+}

@@ -1,0 +1,15 @@
+@mixin card {
+	color: var(--card-color);
+	background: var(--card-background);
+	border: var(--card-border);
+	border-radius: var(--card-border-radius);
+}
+
+@mixin card-clickable {
+	@include clickable {
+		color: var(--card-hover-color);
+		background: var(--card-hover-background);
+		border: var(--card-hover-border);
+		border-radius: var(--card-hover-border-radius);
+	}
+}

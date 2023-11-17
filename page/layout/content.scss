@@ -1,0 +1,4 @@
+@mixin paragraph {
+	display: block;
+	margin-bottom: var(--paragraph-spacing);
+}

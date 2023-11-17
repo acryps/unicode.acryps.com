@@ -1,9 +1,258 @@
+@import './layout/layout.scss';
+@import './layout/navigation.scss';
+@import './layout/collection.scss';
+@import './layout/article.scss';
+@import './layout/action.scss';
+@import './layout/card.scss';
+@import './layout/content.scss';
+
+@import './assets/fonts/index.scss';
+
+
+:root {
+	--border-size: 1px;
+	--border-color: #383e42;
+	--border: var(--border-size) solid var(--border-color);
+
+	--card-background: #222;
+	--card-hover-background: #262626;
+	--card-border-radius: 0.25rem;
+
+	--primary-color: #f4a;
+	--primary-contrast-color: #fff;
+}
+
 body {
 	margin: 0;
 	padding: 0;
+
+	color: #d9d9d9;
+	background: #1c1c1c;
+	font-family: var(--font-display), system-ui;
 }
 
 ui-page {
-	display: block;
-	
+	@include page;
+}
+
+ui-navigation {
+	@include navigation;
+
+	background: #222;
+	border-bottom: var(--border);
+	font-weight: bold;
+
+	ui-brand {
+		@include clickable;
+
+		display: flex;
+		align-items: center;
+		padding-inline: 1.5rem;
+
+		border-right: var(--border);
+
+		ui-logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 2rem;
+			height: 2rem;
+			margin-right: 0.75rem;
+
+			color: var(--primary-contrast-color);
+			background: var(--primary-color);
+		}
+
+		ui-name {
+			padding-block: 1.25rem;
+
+			font-size: 1.25rem;
+		}
+	}
+}
+
+ui-page > ui-home {
+	@include article;
+	--article-spacing: 2rem;
+
+	@include boxed;
+	--boxed-content-width: 1200px;
+
+	> ui-header {
+		@include article-header;
+
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+		border-bottom: var(--border);
+
+		> ui-title {
+			@include article-header-title;
+
+			font-size: 2rem;
+		}
+	}
+
+	> ui-guide {
+		@include paragraph;
+		--paragraph-spacing: 2rem;
+	}
+
+	> ui-blocks {
+		@include collection;
+		--collection-item-size: 20rem;
+		--collection-gutter: 1rem;
+		--collection-group-spacing: 2rem;
+
+		ui-block {
+			@include collection-item;
+
+			@include card;
+			@include card-clickable;
+
+			padding: 1.5rem;
+
+			> ui-name {
+				display: block;
+				height: 3em;
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				font-size: 1.5rem;
+			}
+
+			> ui-preview {
+				position: relative;
+
+				display: flex;
+				margin-right: -0.5rem;
+				overflow: hidden;
+
+				&::after {
+					content: '';
+
+					position: absolute;
+					inset-block: 0;
+					right: 0;
+
+					width: 5rem;
+
+					background: linear-gradient(90deg, #2220, #222);
+				}
+
+				> ui-character {
+					flex-shrink: 0;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					width: 4rem;
+					height: 4rem;
+					margin-right: 0.5rem;
+					overflow: hidden;
+
+					font-size: 3rem;
+					line-height: 1;
+					background: #333;
+				}
+			}
+
+			> ui-metrics {
+				display: block;
+				margin-top: 1.5rem;
+				padding-top: 1.25rem;
+
+				border-top: var(--border);
+
+				> ui-character-count,
+				> ui-range {
+					display: block;
+					margin-top: 0.25rem;
+
+					font-family: var(--font-monospaced);
+					font-weight: 200;
+
+					> ui-name {
+						display: inline-block;
+						margin-right: 1ch;
+
+						color: #888;
+					}
+				}
+			}
+		}
+	}
+}
+
+ui-page > ui-block {
+	@include article;
+	--article-spacing: 2rem;
+
+	@include boxed;
+	--boxed-content-width: 1200px;
+
+	> ui-header {
+		@include article-header;
+
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+		border-bottom: var(--border);
+
+		> ui-name {
+			@include article-header-title;
+
+			font-size: 2rem;
+		}
+	}
+
+	> ui-code-points {
+		@include collection;
+		--collection-item-size: 15rem;
+		--collection-gutter: 1rem;
+
+		ui-code-point {
+			@include collection-item;
+
+			@include card;
+			@include card-clickable;
+
+			padding: 1.5rem;
+			overflow: hidden;
+
+			ui-character {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+
+				height: 6rem;
+
+				font-size: 5rem;
+				line-height: 1;
+
+				ui-bounding-box {
+					border: 1px dotted #666;
+				}
+			}
+
+			ui-name {
+				display: block;
+				margin-block: 0.5rem;
+				height: 2.5rem;
+
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				line-height: 1.25;
+				text-transform: capitalize;
+			}
+
+			ui-hex {
+				display: block;
+
+				font-family: var(--font-monospaced);
+				font-size: 0.8rem;
+			}
+		}
+	}
 }

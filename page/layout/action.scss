@@ -1,0 +1,9 @@
+@mixin clickable {
+	cursor: pointer;
+
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}

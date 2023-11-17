@@ -1,0 +1,22 @@
+@mixin collection {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(var(--collection-item-size), 1fr));
+	gap: var(--collection-gutter);
+
+	@content;
+}
+
+@mixin collection-toolbar {
+	display: flex;
+	align-content: space-between;
+}
+
+@mixin collection-group {
+	@include collection;
+
+	margin-bottom: var(--collection-group-spacing);
+}
+
+@mixin collection-item {
+	
+}

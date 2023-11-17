@@ -1,0 +1,29 @@
+@mixin page {
+	--block-start-inset: 0px;
+	--block-end-inset: 0px;
+	--inline-start-inset: 0px;
+	--inline-end-inset: 0px;
+
+	display: block;
+	box-sizing: border-box;
+
+	@content;
+}
+
+@mixin boxed {
+	display: block;
+	max-width: var(--boxed-content-width);
+	margin: 0 auto;
+
+	@content;
+}
+
+@mixin filled-page {
+	position: absolute;
+	inset-block-start: var(--block-start-inset);
+	inset-block-end: var(--block-end-inset);
+	inset-inline-start: var(--inline-start-inset);
+	inset-inline-end: var(--inline-end-inset);
+
+	@content;
+}
