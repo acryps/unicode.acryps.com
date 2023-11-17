@@ -163,6 +163,7 @@ ui-page > ui-home {
 				margin-top: 1.5rem;
 				padding-top: 1.25rem;
 
+				font-size: 0.8rem;
 				border-top: var(--border);
 
 				> ui-character-count,
@@ -171,7 +172,6 @@ ui-page > ui-home {
 					margin-top: 0.25rem;
 
 					font-family: var(--font-monospaced);
-					font-weight: 200;
 
 					> ui-name {
 						display: inline-block;
